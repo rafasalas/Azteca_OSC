@@ -50,7 +50,7 @@ void ofApp::update(){
 		if (msg==addr) {
 			for (int j = 0; j<512; j++) {
 
-				value[j] = m.getArgAsFloat(j);
+				value[j] = (m.getArgAsFloat(j)*100) + (360 * (j / 512));
 
 			}
 		
@@ -90,9 +90,11 @@ void ofApp::draw(){
 		angulo_inicial = (i * 2) + value[i];
 		radius = radio;//+(value[i])*.05;
 		anchus = ancho;//-(value[i]*0.05);
-		green = 230 - (value[i] * 0.8);
+		green = 230 - (value[i] * 1.5);
+		if (green > 250) { green = 250;}
 		//ofSetColor(0,125,i/2);
-		alfa = 30 + (value[i] * 0.8);
+		alfa = 90 + (value[i] * 1.5);
+		if (alfa > 250) { alfa = 250; }
 		for (int j = 0; j<numero_cachos[i]; j++)
 		{
 			arco(resolucion, angulo, angulo_inicial, anchus, radius, x, y, red, green, blue, alfa);
@@ -101,10 +103,10 @@ void ofApp::draw(){
 
 
 	}
-	ofSetColor(red, green, blue, 80);
-	ofRect(10, (y * 2) - 20, ofGetWidth() - 30, 8);
-	ofSetColor(red, green, blue, 150);
-	ofRect(10, (y * 2) - 20, ((ofGetWidth() - 40)*posicion) + 10, 8);
+	//ofSetColor(red, green, blue, 80);
+	//ofRect(10, (y * 2) - 20, ofGetWidth() - 30, 8);
+	//ofSetColor(red, green, blue, 150);
+	//ofRect(10, (y * 2) - 20, ((ofGetWidth() - 40)*posicion) + 10, 8);
 
 	//arco (resolucion, angulo_posicion, 0, 70, 690,x,y,255,255, 255,255);
 }
