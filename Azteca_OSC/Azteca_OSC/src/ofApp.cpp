@@ -90,10 +90,10 @@ void ofApp::draw(){
 		angulo_inicial = (i * 2) + value[i];
 		radius = radio;//+(value[i])*.05;
 		anchus = ancho;//-(value[i]*0.05);
-		green = 230 - (value[i] * 1.5);
+		green = 230 - (value[i] * 0.8);
 		if (green > 250) { green = 250;}
 		//ofSetColor(0,125,i/2);
-		alfa = 90 + (value[i] * 1.5);
+		alfa = 90 + (value[i] * 0.8);
 		if (alfa > 250) { alfa = 250; }
 		for (int j = 0; j<numero_cachos[i]; j++)
 		{
